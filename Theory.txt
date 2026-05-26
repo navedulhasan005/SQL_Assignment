@@ -1,0 +1,60 @@
+8) What is the significance of “%” and “_” operators in the LIKE statement?
+
+	In a SQL LIKE statement, the % and _ symbols act as wildcard characters used to search for specific text patterns within a column. 
+	They allow you to find data even when you don't know the exact string you're looking for.Percent Sign (%): Represents zero, one, or multiple characters. 
+	It is used when you want to match any sequence of characters of any length.
+	Example: 
+		LIKE 'A%' finds all values starting with "A" (e.g., "Apple", "Adam", or just "A").Underscore (_): Represents exactly one single character. 
+		It acts as a placeholder for a specific position where any single character can exist.
+	Example: 
+		LIKE '_a%' finds values where "a" is the second letter, regardless of what the first character is.
+
+
+9) Explain normalization in the context of databases.
+
+	Database normalization is a design process that organizes data into tables to minimize redundancy and eliminate undesirable characteristics like insertion, update, and deletion anomalies. 
+	It splits large tables into smaller, related ones and links them using relationship keys.
+
+
+10) What does a join in MySQL mean?
+
+	In MySQL, a JOIN is a clause used to combine rows from two or more tables based on a related column between them. 
+	It allows you to retrieve connected data stored in separate tables within a single query, which is much more efficient than running multiple separate queries.
+	Think of it as creating a temporary virtual table that matches records from one table (like "Orders") to another (like "Customers") using a shared identifier, such as a CustomerID.
+
+
+11) What do you understand about DDL, DCL, and DML in MySQL?
+
+	In MySQL, DDL, DML, and DCL are categories of SQL commands used to manage the database's structure, the data within it, and user access permissions.
+
+		DDL: Data Definition Language
+			DDL commands focus on the structure or schema of the database rather than the individual records. They are generally auto-committed, meaning changes are saved immediately and cannot be rolled back.
+				CREATE: Used to build new databases or objects like tables and indexes.ALTER: Modifies an existing database structure, such as adding or deleting columns.
+				DROP: Permanently deletes objects (tables, databases) along with all their data.
+				TRUNCATE: Removes all records from a table while keeping the table structure intact for future use.RENAME: Used to change the name of a database object.
+
+		DML: Data Manipulation Language
+			DML commands are used to interact with and modify data stored in existing tables. Unlike DDL, these are often part of transactions and can sometimes be rolled back if they are not yet committed.
+				INSERT: Adds new rows of data into a table.UPDATE: Modifies existing records within a table.
+				DELETE: Removes specific records based on a condition.
+				SELECT: Often categorized as DQL (Data Query Language), it is used to retrieve and view data from one or more tables.
+
+		DCL: Data Control Language
+			DCL commands handle security and access control, determining which users can perform specific operations.
+				GRANT: Gives a user specific permissions (like SELECT or UPDATE) on a database or table.
+				REVOKE: Removes previously granted privileges from a user
+
+
+12) What is the role of the MySQL JOIN clause in a query, and what are some
+common types of joins?
+
+	A JOIN in MySQL is a clause used to combine rows from two or more tables based on a related column between them.
+	In a relational database, data is often split across multiple tables to reduce redundancy (a process called normalization). 
+	JOINS allow you to link these tables back together to retrieve a complete picture of your data in a single result set.
+	Common Types of Joins in MySQLThe way tables are combined depends on the type of JOIN used:
+
+		INNER JOIN: Returns only the records that have matching values in both tables.
+		LEFT (OUTER) JOIN: Returns all records from the left table and the matched records from the right table. If no match exists on the right, it returns NULL for those columns.
+		RIGHT (OUTER) JOIN: Returns all records from the right table and the matched records from the left table.
+		CROSS JOIN: Returns the "Cartesian product" of both tables, meaning it pairs every row from the first table with every row from the second table.
+		SELF JOIN: A regular join, but the table is joined with itself.
