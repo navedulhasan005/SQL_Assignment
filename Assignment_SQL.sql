@@ -114,9 +114,24 @@ where firstname = 'Lesley' and lastname = 'Bland';
 -- Outfitters, Inc.” to “Urban Outfitters” . 
 update Company
 set CompanyName = 'Urban Outfitters'
-where CompanyName = 'Urban Outfitters, Inc.'
+where CompanyName = 'Urban Outfitters, Inc.';
 
 
 -- In ContactEmployee table, the statement that removes Dianne Connor’s contact
--- event with Jack Lee (one statement).
+-- event with Jack Lee (one statement) 
+DELETE ce 
+FROM ContactEmployee ce
+JOIN Employee e ON ce.EmployeeID = e.EmployeeID
+JOIN Contact c ON ce.ContactID = c.ContactID
+WHERE e.FirstName = 'Dianne' AND e.LastName = 'Connor'
+  AND c.FirstName = 'Jack' AND c.LastName = 'Lee';
+  
+  
+-- Write the SQL SELECT query that displays the names of the employees that
+-- have contacted Toll Brothers (one statement). Run the SQL SELECT query in
+-- MySQL Workbench. Copy the results below as well. 
 
+select concat(c.FirstName," ",c.LastName) as Full_Name from contact c
+inner join company c1
+on c.companyID = c1.companyID
+where c1.companyName = "Toll Brother";
